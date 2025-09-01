@@ -1,0 +1,12 @@
+OSINT - 1
+
+MOBY SLICE (EASY)
+
+Description: 
+  A caramelized crust fuels a craving akin to an epic hunt across seas. Seek the Chicago pizzeria named after a doomed captain’s ship.
+
+Solution: 
+	Start by analysing the clues given in the description. “An epic hunt across seas” and “a doomed captain’s ship” both directly point to a specific book – ‘Moby Dick’. Even the name of the challenge gives a slight clue towards this book. All you have to do is find the name of the doomed captain’s ship, which is Pequod. From there, you just search for a pizza place in Chicago with that name, and you'll find the answer.
+
+Flag:  
+  ACNCTF{Pequod’s_Pizza}
