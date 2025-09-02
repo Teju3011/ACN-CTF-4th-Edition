@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Digital Archaeology Lab - Research Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="lab-header">
+      <div class="logo">
+        <span class="logo-icon">🔬</span>
+        <h1>Digital Archaeology Lab</h1>
+      </div>
+      <div class="status-bar">
+        <span class="status online">Research Terminal Active</span>
+        <span class="timestamp" id="timestamp"></span>
+      </div>
+    </header>
+
+    <main class="research-area">
+      <div class="welcome-panel">
+        <h2>Welcome, Research Assistant</h2>
+        <p>The Digital Archaeology Lab studies the digital remnants of lost civilizations. Our current excavation has uncovered fragments of an ancient data structure that appears to contain encoded cultural artifacts.</p>
+        
+        <div class="discovery-log">
+          <h3>Recent Discoveries</h3>
+          <ul>
+            <li>📁 Excavation site shows evidence of distributed data storage systems</li>
+            <li>🧬 Preliminary analysis suggests a three-part cultural identifier</li>
+            <li>⚡ Advanced encoding methods detected in the substrate</li>
+            <li>🔍 Field notes indicate additional research stations may exist</li>
+          </ul>
+        </div>
+
+        <div class="research-stations">
+          <div class="station active">
+            <h4>Station Alpha</h4>
+            <p>Primary data collection unit - analyzing persistent storage patterns</p>
+            <div class="progress-bar"><div class="progress" style="width: 100%"></div></div>
+          </div>
+          
+          <div class="station">
+            <h4>Station Beta</h4>
+            <p>Secured research vault - requires exploration clearance</p>
+            <div class="progress-bar"><div class="progress" style="width: 0%"></div></div>
+          </div>
+          
+          <div class="station">
+            <h4>Station Gamma</h4>
+            <p>Spectral analysis of UI layer artifacts</p>
+            <div class="progress-bar"><div class="progress" style="width: 15%"></div></div>
+          </div>
+        </div>
+
+        <div class="artifact-display">
+          <span class="artifact-label">Cultural Artifact Fragment Analysis:</span>
+          <div id="artifact-container" class="artifact-text" tabindex="0"></div>
+          <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 1rem;">
+            Spectral analysis indicates cultural markers may exist beyond the immediate research interface. Consider adjusting observation parameters to detect artifacts in extended archaeological zones.
+          </p>
+        </div>
+      </div>
+
+      <div class="research-notes">
+        <h3>Research Methodology</h3>
+        <p>Modern digital archaeology requires understanding of various data preservation techniques used by ancient digital civilizations. These societies were known to distribute important cultural identifiers across multiple storage mediums for redundancy and security.</p>
+      </div>
+    </main>
+
+    <footer class="lab-footer">
+      <p>Digital Archaeology Lab - Research Division © 2025</p>
+      <p>Remember: True archaeological work requires patience and thorough investigation</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="temporal-analyzer.js"></script>
+  <script src="cipher-module.js"></script>
+  <script src="quantum-decoder.js"></script>
+  <script src="neural-mapper.js"></script>
+  <script src="synthesis-engine.js"></script>
+</body>
+</html>

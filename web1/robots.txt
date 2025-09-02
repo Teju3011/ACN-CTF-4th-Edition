@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /supersecret.html
+Disallow: /research-vault/
+Disallow: /classified/
+Disallow: /archaeological-data/
+
+# Digital Archaeology Lab - Access Control Protocol
+# Authorized personnel may access secured research areas
+# Station Beta clearance required for vault access
