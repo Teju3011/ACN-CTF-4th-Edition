@@ -31,90 +31,63 @@ The RSA modulus was generated using \*\*8 primes\*\* with a \*\*Linear Congruent
 
 
 Python code:
-
-
-
+# participant_solve.py
+import sympy
 from Crypto.PublicKey import RSA
 
+# Load public key and ciphertext
+pub = RSA.import_key(open("public.pem").read())
+c_int = int(open("flag.enc").read())
 
+# Load leaked LCG outputs
+with open("dump.txt") as f:
+    lcg_outputs = [int(x.strip()) for x in f.readlines()]
+if len(lcg_outputs) != 8:
+    raise Exception("dump.txt must contain all 8 outputs")
 
-\\# Load ciphertext and public key
+# Reconstruct candidate numbers and primes
+candidates = [x | (1 << 120) for x in lcg_outputs]
+primes = [sympy.nextprime(c) for c in candidates]
 
-
-
-c\\\_int = int(open("flag.enc").read())
-
-
-
-pub = RSA.import\\\_key(open("public.pem").read())
-
-
-
-N, e = pub.n, pub.e
-
-
-
-\\# Load the original primes (organizer-only)
-
-
-
-with open("primes.txt") as f:
-
-
-
-\&#x20;   primes = \\\[int(x.strip()) for x in f.readlines()]
-
-
-
-\\# Recompute phi and modulus
-
-
-
+# Reconstruct modulus and phi
+N = 1
 phi = 1
-
-
-
-N\\\_reconstructed = 1
-
-
-
 for p in primes:
+    N *= p
+    phi *= (p-1)
+
+# Reconstruct private key
+d = pow(pub.e, -1, phi)
+
+# Decrypt flag
+m_int = pow(c_int, d, N)
+flag_bytes = m_int.to_bytes((m_int.bit_length()+7)//8, "big")
+flag = flag_bytes.decode()
+
+print("[+] Flag:", flag)
 
 
 
-\&#x20;   phi \\\*= (p - 1)
 
 
 
-\&#x20;   N\\\_reconstructed \\\*= p
 
 
 
-\\# Compute private key
 
 
 
-d = pow(e, -1, phi)
 
 
 
-\\# Decrypt flag
 
 
 
-m\\\_int = pow(c\\\_int, d, N\\\_reconstructed)
 
 
 
-flag\\\_bytes = m\\\_int.to\\\_bytes((m\\\_int.bit\\\_length()+7)//8, "big")
 
 
-
-flag = flag\\\_bytes.decode()
-
-
-
-print("\\\[+] Extracted Flag:", flag)
 
 
 
@@ -131,6 +104,7 @@ print("\\\[+] Extracted Flag:", flag)
 ACNCTF{Predictable\_LCG\_RSA}
 
 ```
+
 
 
 
