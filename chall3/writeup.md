@@ -13,7 +13,7 @@ Your task: analyze the file and recover the flag.
 
 -   Download the file (`luckynumber3.exe`)
 -   Run it using GCC/GNU commands and get the flag located somewhere in the mess.
--   Tools you might use: `strings`, GNU, MinGW, radare2, etc.
+-   Tools you might use: `strings`, GNU, MinGW.
 
 ## Flag Format
 
