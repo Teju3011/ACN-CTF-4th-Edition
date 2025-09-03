@@ -47,7 +47,7 @@ Your task: analyze the file and recover the flag.
  
 
 
-##Solution
+## Solution
 
 
 1. first of all, luckynumber3 is downloaded and then run using MinGW using command either
