@@ -1,0 +1,25 @@
+J3$t3rP1ay5 --> password for the encryption 
+
+in decimal
+
+74 51 36 116 51 114 80 49 97 121 53
+
+latlong		
+
+the location of the places when searched from google gives the location coordinates 
+
+Sainik school Satara -> 17.692492013478123, 74.0194295177373
+Lake Inder -> 48.46010346568645, 51.92304910295023
+Obninsk Kaluga Oblast Russia -> 55.116893826739656, 36.595320742502324
+Beijing -> 39.94228076584385, 116.41372156940574
+Imam Khomeini Mosque -> 32.65536974145278, 51.67826427671801
+Omar Ali Saifuddien Mosque -> 4.889852079422777, 114.93921929814869
+Chennai International Airport -> 12.99625594786829, 80.1700769815147
+Kazan Kremlin -> 55.79947982710382, 49.10608473068721
+Eastern Amusement park(joyful land) -> 20.811921484439218, 97.03429966077374
+Mounts Iglit - Baco National Park -> 12.761367249914036, 121.11877440450233
+Madinat Zayed City Mall -> 23.659791962151434, 53.70430301349229
+
+Here is where the jester have tricked them the actual key for the encryption lies in these whole numbers of the longitudes which in correct order gives our passkey
+
+apart from this in order to trick the jester have commented in every image for  hints  understand him ('_')
