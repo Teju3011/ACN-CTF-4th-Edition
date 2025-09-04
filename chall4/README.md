@@ -16,6 +16,10 @@ Your task: analyze the Verilog modules, figure out how they transform inputs, an
 acnctf{...}
 ```
 
-### Author's Note
-This is a beginner-friendly reverse engineering challenge with a hardware twist.  
-No FPGA is required — a scripting language is enough!
+.
+
+.
+
+.
+
+`Good luck!`
