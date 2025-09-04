@@ -1,4 +1,8 @@
-QUESTION:[encrypt file ,riddle file]--> MEDIUM
+QUESTION:[encrypt file ,riddle file]
+
+ TYPE:Medium
+
+ 
 --. --- -. -.- -- --.. -. ..- .. -- -. - -- . .-.. --.- .- . .-- .--- .- --.. -.. -- --. -. ..- ..- -- --.. -... --. .. -- ...-- --. --. . .-.. - --. -- .-- .--- .- .- -. -- --. -. ...- -.- -- --.. -... --. .. -- ...-- --. --. . .-.. - --. -- .-- .--- .- --- --- -...-
 
 Riddle:
@@ -24,6 +28,7 @@ Thunder speaks in broken silence → Morse
 
 
 ORDER OF ENCRYPTION :hex,base32,atbash,rot13,morse
+
 
 
 FLAG: acnctf{br0ken_l0ck_l0l}
