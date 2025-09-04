@@ -11,7 +11,7 @@ Your task: analyze the file and recover the flag.
 
 ## Challenge
 
--   Download the file (`luckynumber3.exe`)
+-   Download the file (`luckno3.exe`)
 -   Run it using GCC/GNU commands and get the flag located somewhere in the mess.
 -   Tools you might use: `strings`, GNU, MinGW.
 
