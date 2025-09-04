@@ -96,6 +96,6 @@ Your task: analyze the file and recover the flag.
 3. somewhere around _memory address_ **14000b000**, .rdata will start, where 4 arrays can be seen.
 4. after the arrays, some other text is seen, those are the riddles to identify with what ciphertext the flag has been encrypted.
 5. ofc, **array3** is the correct flag, rest all are dummies.{mentioned in the .exe filename that important number is 3}
-6. order of encryption was _Atbash<<ROT13 WITH ROTATION of NUMBERS<<Bacon._ , so decryption will be opposite.
+6. order of encryption was _Atbash<<ROT13<<Bacon._ , so decryption will be opposite.
 7. finally, the decoded flag obtained from the .exe file is
                                   `ACNCTF{CONGPATULATIONS}`
