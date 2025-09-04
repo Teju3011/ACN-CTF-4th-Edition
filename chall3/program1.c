@@ -1,4 +1,8 @@
 #include <stdio.h>
+#define PADDING_REPEAT 1000
+__attribute__((section(".padding")))
+const char pad[PADDING_REPEAT * 10] = { "0101001110" };
+
 
 // fake #1: ACNCTF{ur_og_flag}
 const char *data1 = "array1: ACNCTF{ur_og_flag}";
@@ -11,6 +15,9 @@ const char *data3 = "array3: 01001 10111 00110 10011 10010 10001 00001 01011 100
 
 // fake #3: more random bits
 const char *data4 = "array4: 10101 01010 11100 00101 11011 01101";
+
+const int padding[1000] = {10011010};
+
 
 // A riddle/hint, will show up as a string in the binary
 volatile const char riddle[] __attribute__((used)) =
