@@ -1,7 +1,7 @@
 # Easy Reverse Engineering Challenge
 
 **Category:** Reverse Engineering\
-**Difficulty:** Medium
+**Difficulty:** Easy
 
 ## Description
 
