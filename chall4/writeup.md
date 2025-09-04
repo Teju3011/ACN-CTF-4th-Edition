@@ -1,5 +1,5 @@
 # Writeup — Verilog Flag Checker
-## Easy Reverse Engineering Challenge
+# Easy Reverse Engineering Challenge
 
 Category: Reverse Engineering
 Difficulty: Easy
