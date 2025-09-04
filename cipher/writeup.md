@@ -29,6 +29,9 @@ Thunder speaks in broken silence → Morse
 
 ORDER OF ENCRYPTION :hex,base32,atbash,rot13,morse
 
+acnctf{} have to give explicitly in question
+
 
 
 FLAG: acnctf{br0ken_l0ck_l0l}
+
