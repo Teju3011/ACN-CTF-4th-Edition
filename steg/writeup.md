@@ -29,6 +29,8 @@ We found this strange PNG.
 It looks empty, but maybe there’s more hidden inside the pixels...
 Can you recover the secret?
 
+Participants are given only challenge.py and stegosolver.py is solution 
+
 
 Recovered flag:
 acnctf{crypto_in_pixels}
