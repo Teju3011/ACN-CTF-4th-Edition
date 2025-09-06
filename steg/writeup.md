@@ -29,10 +29,47 @@ We found this strange PNG.
 It looks empty, but maybe there’s more hidden inside the pixels...
 Can you recover the secret?
 
-Participants are given only challenge.py and stegosolver.py is solution 
-
 
 Recovered flag:
 acnctf{crypto_in_pixels}
+
+
+Solution:
+
+from PIL import Image
+
+mod = 257
+exp = 3
+flag_chars = []
+
+
+cube_roots = {}
+for x in range(mod):
+    cube_roots[(x ** exp) % mod] = x
+
+
+img = Image.open("challenge.png")
+pixels = img.load()
+width, height = img.size
+
+
+encrypted = []
+for i in range(width // 8):
+    val = 0
+    for bit in range(8):
+        r, g, b = pixels[i * 8 + bit, 0]
+        val |= (r & 1) << bit
+    encrypted.append(val)
+
+
+for val in encrypted:
+    if val in cube_roots:
+        flag_chars.append(chr(cube_roots[val]))
+    else:
+        flag_chars.append("?")
+
+flag = "".join(flag_chars)
+print("[+] Recovered flag:", flag)
+
 
 
