@@ -7,8 +7,8 @@
 
 Riddle:
 
-"Two tongues whisper in fire, a shadow flips them,
-the sun’s battalion marches five by five,
+"Two tongues whisper in fire,
+the sun’s battalion marches five by five, a shadow flips them,
 an old emperor shifts me thirteen winters,
 and thunder speaks in broken silence."
 
@@ -34,4 +34,5 @@ acnctf{} have to give explicitly in question
 
 
 FLAG: acnctf{br0ken_l0ck_l0l}
+
 
