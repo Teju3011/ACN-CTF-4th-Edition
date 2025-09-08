@@ -1,0 +1,20 @@
+## Technical Requirements
+
+### Python Version
+- Python 3.6 or higher
+
+### Required Python Packages
+- tkinter (included in standard Python distribution)
+- time (included in standard Python distribution)
+- hashlib (included in standard Python distribution)
+- base64 (included in standard Python distribution)
+- binascii (included in standard Python distribution)
+- random (included in standard Python distribution)
+- re (included in standard Python distribution)
+- secrets (included in standard Python distribution)
+- json (included in standard Python distribution)
+
+### Operating System Compatibility
+- Windows 7 or higher
+- macOS 10.12 or higher
+- Linux with X11 (tested on Ubuntu 16.04+)
