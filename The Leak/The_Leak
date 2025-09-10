@@ -1,0 +1,11 @@
+Description:
+  A careless dev hinted at leaking something online…
+
+Solution pathway: 
+  From the screenshot (leaky_commit.png), identify the repo IOTA/secure-node-manager → find contributor FeatureRequestFred on GitHub.
+  GitHub bio points to Twitter account @FreddieTheDev_.
+  On Twitter(X), notice a with an attached image.
+  Inspect the image’s alt-text → reveals the flag
+
+Flag:
+  ACNCTF{0ops_1_L34k3d_My_4vatar}
