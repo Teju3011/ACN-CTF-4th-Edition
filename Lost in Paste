@@ -1,0 +1,17 @@
+Lost in Paste (Medium)
+
+Description:
+  CipherFoxx used to post travel notes and sometimes dumps them on public paste sites. One post disappeared — find the dump, follow the trail, and recover the missing flag.
+
+Solution:
+  Search public pastes/gists for CipherFoxx (e.g., Pastebin/Gist).
+  Extract the broken blog URL from that paste.
+  Paste the URL into the Wayback Machine (archive.org) and open the archived snapshot.
+  Search for the flag in the github or in the file provided in the broken link
+
+Flag:
+  ACNCTF{404_but_not_forgotten}
+
+Hints:
+  CipherFoxx leaves crumbs on paste sites.
+  A 404 isn’t gone if the archive remembers.
