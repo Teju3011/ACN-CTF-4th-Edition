@@ -2,6 +2,8 @@
 
 **Category:** Forensics / Steganography
 
+**Diffculty Level:** Easy
+
 **📜 Description:**
   Sometimes what you see isn’t what you get.
 Two portraits gaze back at you — each carrying whispers of a secret.
@@ -31,6 +33,7 @@ You might find a passphrase as unlock_me.
 
 The final flag is:
 **ACNCTF{4ff54b43cd8ec104efdf2714199c0357}**
+
 
 
 
