@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsPreview - Get Article Previews Instantly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .preview-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="url"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .result {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 2rem;
+        }
+
+        .result.error {
+            background: #fee;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .result.success {
+            background: #efe;
+            border-left: 4px solid #27ae60;
+        }
+
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        .metadata {
+            margin-top: 1rem;
+        }
+
+        .metadata h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .metadata p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .examples {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            color: white;
+        }
+
+        .examples h3 {
+            margin-bottom: 1rem;
+        }
+
+        .examples ul {
+            list-style: none;
+        }
+
+        .examples li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .examples li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- powered by internal news-parser 1.0 -->
+    <div class="container">
+        <div class="header">
+            <h1>📰 NewsPreview</h1>
+            <p>Get instant previews of news articles and web content</p>
+        </div>
+
+        <div class="preview-form">
+            <form id="previewForm">
+                <div class="form-group">
+                    <label for="articleUrl">Paste a news article URL:</label>
+                    <input 
+                        type="url" 
+                        id="articleUrl" 
+                        name="articleUrl" 
+                        placeholder="https://example.com/news/article"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn">Get Preview</button>
+            </form>
+        </div>
+
+        <div id="result" style="display: none;"></div>
+
+        <div class="examples">
+            <h3>✨ Try these examples:</h3>
+            <ul>
+                <li>https://example.com</li>
+                <li>https://httpbin.org/html</li>
+                <li>https://news.ycombinator.com</li>
+                <li>Any valid news website URL</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 NewsPreview Platform | Powered by modern web technologies</p>
+            <p><small>Having issues? Check our <a href="/robots.txt" style="color: rgba(255,255,255,0.8);">robots.txt</a> for system information</small></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('previewForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const url = document.getElementById('articleUrl').value;
+            const resultDiv = document.getElementById('result');
+            
+            // Show loading state
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.innerHTML = '<div class="loading">Fetching preview... Please wait.</div>';
+            
+            try {
+                // Make the preview request to the backend
+                const response = await fetch(`/preview?link=${encodeURIComponent(url)}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `
+                        <h3>✅ Preview Generated Successfully</h3>
+                        <div class="metadata">
+                            <p><strong>URL:</strong> ${data.url}</p>
+                            <p><strong>Title:</strong> ${data.title}</p>
+                            <p><strong>Description:</strong> ${data.description}</p>
+                            <p><strong>Image:</strong> ${data.image}</p>
+                            ${data.note ? `<p><strong>Note:</strong> ${data.note}</p>` : ''}
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error || 'Unknown error occurred');
+                }
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                
+                let errorMessage = error.message;
+                if (error.message.includes('fetch')) {
+                    errorMessage = 'Network error occurred while fetching preview';
+                }
+                
+                resultDiv.innerHTML = `
+                    <h3>❌ Error</h3>
+                    <p>${errorMessage}</p>
+                    <p><small>Make sure the URL is valid and accessible.</small></p>
+                `;
+            }
+        });
+
+        // Add some example URLs that can be clicked
+        document.querySelectorAll('.examples li').forEach(li => {
+            li.style.cursor = 'pointer';
+            li.addEventListener('click', function() {
+                const url = this.textContent.trim();
+                if (url.startsWith('http')) {
+                    document.getElementById('articleUrl').value = url;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

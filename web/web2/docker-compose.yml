@@ -1,0 +1,42 @@
+services:
+  main-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.main
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    networks:
+      - ctf-network
+    depends_on:
+      - internal-service
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  internal-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.internal
+    ports:
+      - "127.0.0.1:5001:5001"  # Only bind to localhost
+    environment:
+      - PORT=5001
+    networks:
+      - ctf-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # No expose needed since it's internal to the network
+
+networks:
+  ctf-network:
+    driver: bridge
+    internal: false  # Allow external access for main app

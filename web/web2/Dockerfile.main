@@ -1,0 +1,22 @@
+FROM node:20-alpine
+
+# Install wget for health checks
+RUN apk add --no-cache wget
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY app.js ./
+COPY public/ ./public/
+
+# Expose port
+EXPOSE 3000
+
+# Start the main application
+CMD ["npm", "start"]
