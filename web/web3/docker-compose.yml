@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=blind_sqli
+      - DB_USER=webapp
+      - DB_PASS=webapp123
+    volumes:
+      - ./:/var/www/html/
+    networks:
+      - ctf-network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: blind_sqli
+      MYSQL_USER: webapp
+      MYSQL_PASSWORD: webapp123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - ctf-network
+
+volumes:
+  mysql_data:
+
+networks:
+  ctf-network:
+    driver: bridge
