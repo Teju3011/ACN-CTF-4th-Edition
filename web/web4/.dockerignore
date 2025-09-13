@@ -1,0 +1,13 @@
+# Ignore development and documentation files
+WRITEUP.md
+exploit_demo.py
+.git
+.gitignore
+manage.sh
+nginx-site.conf
+
+# Ignore temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

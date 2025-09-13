@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: #00ff00;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+h2 {
+    color: #ff6600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #ff6600;
+}
+
+.story-section {
+    text-align: center;
+}
+
+.story-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.story-text p {
+    margin-bottom: 15px;
+}
+
+.portal-access {
+    margin-top: 30px;
+}
+
+/* Portal button styles */
+.portal-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.portal-btn:hover {
+    background: linear-gradient(135deg, #ee5a52, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.portal-btn.secondary {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.portal-btn.secondary:hover {
+    background: linear-gradient(135deg, #44a08d, #4ecdc4);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.form-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #00ff00;
+}
+
+.form-group input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.submit-btn {
+    padding: 12px 25px;
+    background: #00ff00;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #33ff33;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.success {
+    background: rgba(0, 255, 0, 0.2);
+    border: 2px solid #00ff00;
+    color: #00ff00;
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.2);
+    border: 2px solid #ff0000;
+    color: #ff0000;
+}
+
+.neutral {
+    color: #888;
+    font-style: italic;
+}
+
+/* Reports page styles */
+.header-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #333;
+}
+
+.back-link {
+    color: #4ecdc4;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.reports-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.file-browser {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.file-browser h3, .file-browser h4 {
+    color: #4ecdc4;
+    margin-bottom: 15px;
+}
+
+.file-list {
+    margin-bottom: 25px;
+}
+
+.file-item {
+    display: block;
+    padding: 10px 15px;
+    background: #2a2a2a;
+    color: #ccc;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.file-item:hover {
+    background: #333;
+    color: #4ecdc4;
+}
+
+.file-item.active {
+    background: #4ecdc4;
+    color: #000;
+}
+
+.manual-access {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.file-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.file-input {
+    flex: 1;
+    padding: 8px 12px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #ccc;
+}
+
+.load-btn {
+    padding: 8px 15px;
+    background: #4ecdc4;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.load-btn:hover {
+    background: #44a08d;
+}
+
+.file-content {
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.content-header {
+    background: #2a2a2a;
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.content-header h3 {
+    margin: 0;
+    color: #4ecdc4;
+}
+
+.content-body {
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.content-body pre {
+    margin: 0;
+    color: #ccc;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+}
+
+.no-content {
+    padding: 40px 20px;
+    text-align: center;
+    color: #888;
+}
+
+.error-message {
+    padding: 20px;
+    background: #2a1a1a;
+    color: #ff6b6b;
+    border-left: 4px solid #ff6b6b;
+    margin: 20px;
+}
+
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

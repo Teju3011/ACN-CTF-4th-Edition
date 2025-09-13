@@ -1,0 +1,47 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=blind_sqli
+      - DB_USER=webapp
+      - DB_PASS=webapp123
+    volumes:
+      - ./:/var/www/html/
+      - shared_tmp:/tmp
+    networks:
+      - ctf-network
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: blind_sqli
+      MYSQL_USER: webapp
+      MYSQL_PASSWORD: webapp123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+      - shared_tmp:/tmp
+    ports:
+      - "3307:3306"
+    networks:
+      - ctf-network
+    # Configure MySQL 5.7 to allow OOB HTTP requests
+    command: >
+      --secure-file-priv=""
+      --local-infile=1
+      --general-log=1
+      --general-log-file=/var/lib/mysql/general.log
+
+volumes:
+  mysql_data:
+  shared_tmp:
+
+networks:
+  ctf-network:
+    driver: bridge
