@@ -1,0 +1,18 @@
+The Hidden Protest (Medium)
+
+Description:
+  A cropped photo of a historic building hides more than it shows. Listen to the whispers of the past — a single figure and a pivotal year may hold the key.
+
+Solution:
+  Inspect its metadata (using exiftool or similar tools).
+  Hidden caption appears: “They say one man stood here against thirty years of silence.”
+  Find where the photo was taken
+  Research leads to Joseph Howe and his 1835 libel trial in Halifax, Nova Scotia.
+
+Flag:
+  ACNTF{JosephHowe_1835}
+  ACNTF{Joseph_Howe_1835}
+
+Hints:
+  Check where most travelers don’t look — the story hides in the details.
+  The key combines a person and the year history remembers.
