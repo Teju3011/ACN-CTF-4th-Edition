@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp - Employee Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>TechCorp</h2>
+            </div>
+            <div class="nav-links">
+                <a href="/">Login</a>
+                <a href="/register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Employee Registration</h1>
+                    <p>Create your TechCorp account</p>
+                </div>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <button type="submit" class="auth-button">Register</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="/">Login here</a></p>
+                </div>
+
+                <div class="error-message" id="errorMessage" style="display: none;"></div>
+                <div class="success-message" id="successMessage" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>Join TechCorp</h3>
+            <p>Register to access our employee portal and company resources.</p>
+            <div class="features">
+                <div class="feature">
+                    <h4>Easy Setup</h4>
+                    <p>Quick registration process to get you started</p>
+                </div>
+                <div class="feature">
+                    <h4>Instant Access</h4>
+                    <p>Immediate access to employee dashboard after registration</p>
+                </div>
+                <div class="feature">
+                    <h4>Secure Platform</h4>
+                    <p>Your data is protected with enterprise-grade security</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

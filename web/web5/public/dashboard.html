@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp - Employee Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>TechCorp</h2>
+            </div>
+            <div class="nav-links">
+                <span id="userInfo"></span>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <h3>Employee Portal</h3>
+            <ul class="menu">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#" class="disabled">Documents</a></li>
+                <li><a href="#" class="disabled">Projects</a></li>
+                <li><a href="#" class="disabled">Reports</a></li>
+                <li><a href="#" class="disabled">Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1>Welcome to your Dashboard</h1>
+                <p>Access Level: Standard Employee</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>My Profile</h3>
+                    <p>View and update your employee information</p>
+                    <button class="card-button disabled">View Profile</button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Company Resources</h3>
+                    <p>Access employee handbook and policies</p>
+                    <button class="card-button disabled">Browse Resources</button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Time Tracking</h3>
+                    <p>Log your work hours and view timesheets</p>
+                    <button class="card-button disabled">Track Time</button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Support Tickets</h3>
+                    <p>Submit and track IT support requests</p>
+                    <button class="card-button disabled">Create Ticket</button>
+                </div>
+
+                <div class="dashboard-card restricted">
+                    <h3>Admin Panel</h3>
+                    <p>Administrative tools and system management</p>
+                    <p class="restriction-note">Access Restricted - Administrator privileges required</p>
+                    <button class="card-button disabled">Access Denied</button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Session Information</h3>
+                    <p>View your current session details</p>
+                    <button onclick="showSessionInfo()" class="card-button">View Session</button>
+                    <div id="session-display" style="display:none; margin-top:15px;">
+                        <div class="session-info">
+                            <h4>Session Details</h4>
+                            <div id="session-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        function showSessionInfo() {
+            const authCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('auth='))
+                ?.split('=')[1];
+            
+            const display = document.getElementById('session-display');
+            const content = document.getElementById('session-content');
+            
+            if (authCookie) {
+                try {
+                    const decoded = atob(authCookie);
+                    const userData = JSON.parse(decoded);
+                    
+                    content.innerHTML = `
+                        <p><strong>Username:</strong> ${userData.user}</p>
+                        <p><strong>Role:</strong> ${userData.role}</p>
+                        <p><strong>Session Token:</strong></p>
+                        <code class="session-token">${authCookie}</code>
+                        <p class="tech-note">Session data is stored as Base64 encoded JSON</p>
+                    `;
+                } catch (e) {
+                    content.innerHTML = '<p>Unable to decode session data</p>';
+                }
+                display.style.display = 'block';
+            } else {
+                content.innerHTML = '<p>No session found</p>';
+                display.style.display = 'block';
+            }
+        }
+        
+        function logout() {
+            document.cookie = 'auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.href = '/';
+        }
+
+        // Update user info in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const authCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('auth='));
+            
+            if (authCookie) {
+                try {
+                    const decoded = atob(authCookie.split('=')[1]);
+                    const userData = JSON.parse(decoded);
+                    document.getElementById('userInfo').textContent = `Welcome, ${userData.user}`;
+                } catch (e) {
+                    document.getElementById('userInfo').textContent = 'Welcome, User';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

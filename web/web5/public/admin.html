@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp - Administrator Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar admin-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>TechCorp Admin</h2>
+            </div>
+            <div class="nav-links">
+                <span class="admin-badge">Administrator</span>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="sidebar admin-sidebar">
+            <h3>Admin Panel</h3>
+            <ul class="menu">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">User Management</a></li>
+                <li><a href="#">System Settings</a></li>
+                <li><a href="#">Security Logs</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Server Status</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="dashboard-header admin-header">
+                <h1>Administrator Dashboard</h1>
+                <p>Full system access granted</p>
+            </div>
+
+            <div class="admin-alert">
+                <h2>Security Alert</h2>
+                <p>Congratulations! You have successfully gained administrator access.</p>
+                <div class="flag-display">
+                    <h3>CTF Flag</h3>
+                    <code class="flag">ACNCTF{74mp3r3d_7h3_sw33t_c00k13}</code>
+                </div>
+                <p class="vulnerability-info">
+                    <strong>Vulnerability:</strong> Session cookies were not properly secured. 
+                    The application stores user role information in Base64-encoded cookies without proper signing or encryption.
+                </p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card admin-card">
+                    <h3>User Management</h3>
+                    <p>Manage employee accounts and permissions</p>
+                    <div class="stats">
+                        <span class="stat-number">247</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card admin-card">
+                    <h3>System Health</h3>
+                    <p>Monitor server performance and uptime</p>
+                    <div class="stats">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card admin-card">
+                    <h3>Security Events</h3>
+                    <p>Review security logs and incidents</p>
+                    <div class="stats">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Critical Alerts</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card admin-card">
+                    <h3>Database Status</h3>
+                    <p>Monitor database performance</p>
+                    <div class="stats">
+                        <span class="stat-number">2.1GB</span>
+                        <span class="stat-label">Data Size</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card admin-card">
+                    <h3>Backup Status</h3>
+                    <p>System backup and recovery status</p>
+                    <div class="stats">
+                        <span class="stat-number">Today</span>
+                        <span class="stat-label">Last Backup</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card admin-card">
+                    <h3>Audit Logs</h3>
+                    <p>Review system access and changes</p>
+                    <div class="stats">
+                        <span class="stat-number">156</span>
+                        <span class="stat-label">Today's Events</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="action-btn">Export User Data</button>
+                    <button class="action-btn">System Maintenance</button>
+                    <button class="action-btn">Generate Reports</button>
+                    <button class="action-btn">Security Scan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            document.cookie = 'auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
