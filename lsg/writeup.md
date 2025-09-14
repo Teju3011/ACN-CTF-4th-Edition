@@ -117,9 +117,10 @@ print("[+] Flag:", flag)
 
 ```
 
-ACNCTF{Predictable\_LCG\_RSA}
+ACNCTF{Predictable_LCG_RSA}
 
 ```
+
 
 
 
