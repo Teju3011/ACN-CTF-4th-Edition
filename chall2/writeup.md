@@ -5,9 +5,9 @@
 
 ### Description
 
-You've stumbled upon a locked terminal protected by a mysterious program. It seems the developer tried to hide the secret key and the precious flag within the code, but not well enough. The binary taunts you with a fake flag: `flag{N2gxNV8xNV9uMHRfN2gzX2ZsNGdfN2gwdWdo}`.
-
-Your mission is to pass the password check and reveal the **true flag** hidden within the program's obfuscated layers.
+You've stumbled upon a locked terminal protected by a mysterious program. It seems the developer tried to hide the secret key and the precious flag within the code, but not well enough.
+_
+Your mission is to pass the password check and reveal the **true flag** hidden within the program's obfuscated layers._
 
 **Download:** `chall2_rev.exe`
 
