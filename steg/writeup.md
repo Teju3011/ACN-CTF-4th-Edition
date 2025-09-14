@@ -1,4 +1,4 @@
-CHALLENGE:STEG+CRYPTO:[MEDIUM]
+CHALLENGE:Silent spectrum[MEDIUM]
 
 Step 1: Inspect the PNG
 
