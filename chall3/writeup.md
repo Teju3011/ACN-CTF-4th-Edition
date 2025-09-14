@@ -85,13 +85,13 @@ Your task: analyze the file and recover the flag.
 ## Solution
 
 
-1. first of all, luckynumber3 is downloaded and then run using MinGW using command either
+1. first of all, luckno3 is downloaded and then run using MinGW using command either
 
-    `objdump -s luckynumber3.exe`
+    `objdump -s luckno3.exe`
 
     OR
 
-    `objdump -s -j .rdata luckynumber3.exe`
+    `objdump -s -j .rdata lucknor3.exe`
    
 3. somewhere around _memory address_ **14000b000**, .rdata will start, where 4 arrays can be seen.
 4. after the arrays, some other text is seen, those are the riddles to identify with what ciphertext the flag has been encrypted.
