@@ -1,0 +1,13 @@
+services:
+  xss-401:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - FLAG=ACNCTF{bl0g_xss_c00kie_st0len}
+      - PORT=3000
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_ADMIN

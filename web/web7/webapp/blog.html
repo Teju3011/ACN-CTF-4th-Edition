@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .post {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+        }
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-content {
+            color: #666;
+            line-height: 1.6;
+        }
+        .comment-section {
+            background-color: #e9ecef;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .comment {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+        .comment-form {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 5px;
+            border: 1px solid #ffeaa7;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .vulnerability-hint {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/">← Back to Security Audit</a>
+        </div>
+        
+        <h1>🏢 Company Blog</h1>
+        
+        <div class="post">
+            <div class="post-title">Welcome to Our New Security Initiative!</div>
+            <div class="post-content">
+                We're excited to announce our new internal security audit system. 
+                Our team can now easily review and test internal pages for vulnerabilities.
+                Feel free to leave comments below!
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-title">Latest Security Updates</div>
+            <div class="post-content">
+                We've implemented new security measures across our platform. 
+                All user input is now carefully... wait, is it really? 🤔
+            </div>
+        </div>
+
+        <div class="comment-section">
+            <h3>💬 Comments</h3>
+            
+            <!-- Existing comments -->
+            <div class="comment">
+                <strong>John Doe:</strong> Great initiative! Looking forward to better security.
+            </div>
+            
+            <div class="comment">
+                <strong>Jane Smith:</strong> Hope this helps catch vulnerabilities early.
+            </div>
+            
+            <!-- VULNERABLE SECTION: Reflected comment from URL parameter -->
+            <div id="reflected-comment"></div>
+            
+            <div class="comment-form">
+                <h4>💡 Testing Comments</h4>
+                <p>You can test comments by adding them to the URL:</p>
+                <p><code>http://localhost:3000/blog?comment=Your+comment+here</code></p>
+                <div class="vulnerability-hint">
+                    <strong>Hint:</strong> Notice how comments from the URL get displayed on the page. 
+                    What happens if you put HTML or JavaScript in the comment parameter?
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // VULNERABLE CODE: Directly inserting URL parameter without sanitization
+        const urlParams = new URLSearchParams(window.location.search);
+        const comment = urlParams.get('comment');
+        
+        if (comment) {
+            const commentDiv = document.getElementById('reflected-comment');
+            // BUG: Direct innerHTML assignment without escaping!
+            commentDiv.innerHTML = '<div class="comment"><strong>Guest Comment:</strong> ' + comment + '</div>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "xss-401-challenge",
+  "version": "1.0.0",
+  "description": "XSS CTF Challenge with hostname parsing vulnerability",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^22.15.0"
+  },
+  "author": "CTF Challenge",
+  "license": "MIT"
+}
