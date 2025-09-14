@@ -1,4 +1,4 @@
-# Keyed Rotate (Hard)
+# Keyed Rotate
 
 Welcome to the challenge!  
 You’re given a Linux x86_64 binary that hides the flag. Your task is to reverse engineer the binary and recover the flag in the format:
