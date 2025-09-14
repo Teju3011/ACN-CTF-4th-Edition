@@ -1,4 +1,4 @@
-Challenge: Monk cipher[Medium]
+Challenge: Secrets of the Cloister[Medium]
 
 Participants have to figure out what type of cipher has been used and decrypt it 
 
