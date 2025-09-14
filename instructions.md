@@ -42,7 +42,7 @@ Find the hidden key and unlock the message.
 
 ---
 
-## 3) Scroll of the Silent Monk (Monk’s Manuscript)
+## 3) Scroll of the Silent  (Monk’s Manuscript)
 **Difficulty:** Medium
 
 **Description:**  
