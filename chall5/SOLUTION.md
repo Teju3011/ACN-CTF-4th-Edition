@@ -77,7 +77,6 @@ except:
 Running this prints:
 ```
 Recovered flag (raw): b'ACNCTF{wh0s_y0ur_dec0mp1ler_n0w}\x00'
-As ASCII: ACNCTF{wh0s_y0ur_dec0mp1ler_n0w}
 ```
 
 (Trim trailing NUL if present.)
