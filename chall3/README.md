@@ -1,6 +1,6 @@
-# Easy Reverse Engineering Challenge
+# LuckyNum3
 
-**Category:** Reverse Engineering\
+**Category:** Reverse Engineering
 **Difficulty:** Easy
 
 ## Description
