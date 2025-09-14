@@ -91,7 +91,7 @@ Your task: analyze the file and recover the flag.
 
     OR
 
-    `objdump -s -j .rdata lucknor3.exe`
+    `objdump -s -j .rdata luckno3.exe`
    
 3. somewhere around _memory address_ **14000b000**, .rdata will start, where 4 arrays can be seen.
 4. after the arrays, some other text is seen, those are the riddles to identify with what ciphertext the flag has been encrypted.
