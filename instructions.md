@@ -42,7 +42,7 @@ Find the hidden key and unlock the message.
 
 ---
 
-## 3) Scroll of the Silent  (Monk’s Manuscript)
+## 3) Scroll of the Silent 
 **Difficulty:** Medium
 
 **Description:**  
@@ -107,8 +107,8 @@ Dig into the pixels and break the code inside.
 - `writeup.md` with extraction instructions
 
 **Hints (public):**
-- Inspect the red-channel LSBs 
-- The numeric residues suggest modular arithmetic; 
+- Inspect the red-channel LSBs
+- Notice they wrap around a prime just larger than 256. 
 
 **Organizer notes (PRIVATE):**
 - Extraction reconstructs integers 0–256. Recognize `c = (ord(char) ** 3) mod 257`. Precompute cube roots modulo 257 to invert.  
