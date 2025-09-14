@@ -6,8 +6,6 @@
 ### Description
 
 You've stumbled upon a locked terminal protected by a mysterious program. It seems the developer tried to hide the secret key and the precious flag within the code, but not well enough.
-_
-Your mission is to pass the password check and reveal the **true flag** hidden within the program's obfuscated layers._
 
 **Download:** `chall2_rev.exe`
 
