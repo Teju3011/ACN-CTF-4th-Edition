@@ -1,9 +1,8 @@
-# SOLUTION.md - Keyed Rotate (Admin solution)
+# SOLUTION.md - PTRACE DANCE 
 
-**NOTE:** This file contains the full solution and the flag. Keep private until after the contest.
 
 ## Overview
-Binary: `keyed_rotate` (ELF x86_64, stripped)  
+Binary: `ptrace_dance` (ELF x86_64, stripped)  
 Goal: Recover the flag printed when the correct secret is provided.
 
 Final flag:
@@ -132,22 +131,22 @@ Use `objdump` to find the reference to the "Correct! Flag" string and the instru
 
 ```bash
 # Show where the string lives and references to it
-strings -t x keyed_rotate | grep -n "Correct! Flag"
-objdump -d keyed_rotate | grep -n "Correct! Flag" -n
+strings -t x ptrace_dance | grep -n "Correct! Flag"
+objdump -d ptrace_dance | grep -n "Correct! Flag" -n
 ```
 
 A reliable method is:
 ```bash
 # find the .rodata address of the string
-readelf -p .rodata keyed_rotate | grep -n "Correct! Flag"
+readelf -p .rodata ptrace_dance | grep -n "Correct! Flag"
 # or:
-objdump -s -j .rodata keyed_rotate | grep -n "Correct! Flag"
+objdump -s -j .rodata ptrace_dance | grep -n "Correct! Flag"
 ```
 
 Then find the code xref to that string (example workflow):
 ```bash
 # find references in code to the string's address (replace 0xADDR with the rodata VA)
-objdump -d keyed_rotate | grep -n "0xADDR"
+objdump -d ptrace_dance | grep -n "0xADDR"
 # or search for the nearby call to printf and note the code address where it happens
 ```
 
@@ -155,7 +154,7 @@ objdump -d keyed_rotate | grep -n "0xADDR"
 
 ### 3) Run under gdb with LD_PRELOAD
 ```bash
-LD_PRELOAD=./noptrace.so gdb ./keyed_rotate
+LD_PRELOAD=./noptrace.so gdb ./ptrace_dance
 (gdb) break *0x<ADDR_OF_CALL>    # break at the instruction that calls printf for the flag
 (gdb) run
 # when breakpoint hits, inspect registers:
@@ -167,7 +166,7 @@ LD_PRELOAD=./noptrace.so gdb ./keyed_rotate
 
 ### 4) Example gdb commands (sequence)
 ```bash
-LD_PRELOAD=./noptrace.so gdb ./keyed_rotate
+LD_PRELOAD=./noptrace.so gdb ./ptrace_dance
 (gdb) break main
 (gdb) run
 # step through until near the call that prints the flag, or set a breakpoint at the address derived via objdump:
@@ -186,13 +185,13 @@ If you prefer to patch out the anti-debug or the comparison branch and force suc
 
 1. Make a copy:
 ```bash
-cp keyed_rotate keyed_rotate.patched
+cp ptrace_dance ptrace_dance.patched
 ```
 
 2. Use radare2 or any hex editor to locate the `ptrace` call or the conditional jump that checks `hv == target` and NOP those bytes. Example radare2 session (high-level):
 
 ```bash
-r2 -w keyed_rotate.patched
+r2 -w ptrace_dance.patched
 [0x00400000]> aa
 [0x00400000]> afl
 # find the function and its address; use 'pdf' to view disassembly and identify the conditional jump
@@ -211,7 +210,7 @@ If you have the correct secret, you can run the binary normally and it will prin
 
 ```bash
 # (example; if the secret is 'open_sesame' as a placeholder)
-printf "open_sesame\n" | ./keyed_rotate
+printf "open_sesame\n" | ./ptrace_dance
 # Expected output:
 # Correct! Flag: ACNCTF{wh0s_y0ur_dec0mp1ler_n0w}
 ```
