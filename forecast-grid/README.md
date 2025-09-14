@@ -1,4 +1,4 @@
-# 🌦️ Forecast Grid
+#  Forecast Grid
 
 **Category:** Crypto — Easy  
 
