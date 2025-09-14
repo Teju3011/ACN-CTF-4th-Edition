@@ -8,6 +8,8 @@ ACNCTF{...}
 ---
 
 ## Challenge Description
+Difficulty: Easy
+
 The binary accepts an input string and performs multiple transformations before deciding if the secret is correct. The real flag is not stored in plaintext — instead, it is reconstructed at runtime using a hidden key and a simple cipher routine.
 
 Your job is to reverse engineer the binary, understand how the decryption works, and recover the original flag.
