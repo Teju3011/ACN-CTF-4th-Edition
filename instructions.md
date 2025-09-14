@@ -54,8 +54,8 @@ Crack the cipher and reveal its true form.
 - `writeup.md` containing instructions and allowed tools
 
 **Hints (public):**
-- Focus on frequency and repeated patterns. A mapping to ASCII characters is used.
-- The original flag was converted to ASCII before applying the monk-style transformation.
+- Focus on frequency and repeated patterns.
+
 
 **Organizer notes (PRIVATE):**
 - The plaintext flag (organizer-only): `acnctf{monkpower}`
@@ -87,7 +87,7 @@ Peel back each layer to reach the core.
 
 **Hinting (public):**
 - Riddle is the authoritative sequence; read it carefully and map each phrase to a transformation.
-- Reverse the encryption chain: decode Morse → ROT13 → Atbash → Base32 → Hex → original plaintext.
+
 
 **Organizer notes (PRIVATE):**
 - Example ciphertext: (challenge content should contain the morse string).  
@@ -107,8 +107,8 @@ Dig into the pixels and break the code inside.
 - `writeup.md` with extraction instructions
 
 **Hints (public):**
-- Inspect the red-channel LSBs in groups of 8.
-- The numeric residues suggest modular arithmetic; consider small prime moduli.
+- Inspect the red-channel LSBs 
+- The numeric residues suggest modular arithmetic; 
 
 **Organizer notes (PRIVATE):**
 - Extraction reconstructs integers 0–256. Recognize `c = (ord(char) ** 3) mod 257`. Precompute cube roots modulo 257 to invert.  
