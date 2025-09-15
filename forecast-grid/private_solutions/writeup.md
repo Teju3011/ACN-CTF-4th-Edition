@@ -1,4 +1,5 @@
 # Forecast Grid — Solution (private)
+You are given a single long text (Base64-encoded). Decode it to obtain a lengthy narrative — that narrative has been encrypted with a repeating-key substitution. Recover the underlying story, locate the unusual capital letters hidden inside, and assemble them into the required flag format.
 
 **Ciphertext:** RCVPKF{ERRTPRI_PIGKEZAJ}  
 **Vigenère key:** RAIN

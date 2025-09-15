@@ -1,6 +1,6 @@
 #  Forecast Grid
 
-**Category:** Crypto — Easy  
+**Category:** Crypto —  
 
 ---
 
@@ -10,13 +10,14 @@ Meteorologists left encoded notes about strange weather patterns. One page conta
 ---
 
 ## Files
-- `challenge/ciphertext.txt` — the Vigenère-encrypted message (ciphertext).  
-- `hint1` — The storm scribbles are not random — the letters repeat in a cycle, like drops falling in rhythm. Think about grids where rows shift against each other.
- 
-- `hint2` — Forecasts are often written with four simple letters. Look up, and you will find what keeps pouring down again and again.
+- `challenge/ciphertext.txt` — the encrypted message.
+- `hint1` — That jumble of letters looks like internet luggage — reverse the packaging that makes data safe for text transfer.
+
+- `hint2` — The cipher’s key repeats like a weather pattern; think short, common, and four letters long — its beat matches falling drops.
+
 
 
 ---
 
 ## Goal & Flag format
-The ciphertext is produced with a Vigenère cipher.
+The ciphertext is produced with a Base64 and Vigenère cipher.
