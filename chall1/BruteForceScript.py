@@ -1,27 +1,42 @@
 import subprocess
 
-# Brute-force range: adjust start, end as per expected key length (e.g., 4 digits means 0000 to 9999)
+# Brute-force all 4-digit numbers (0000 to 9999)
 for key in range(0, 10000):
-    str_key = str(key).zfill(4)  # pad to 4 digits
-    # Run the binary .pyc with subprocess & provide the key as input
+    str_key = str(key).zfill(4)  # Pad to 4 digits (e.g., 42 becomes '0042')
+    
+    # Run the compiled bytecode
     process = subprocess.Popen(
-        ['python3', 'chall1.pyc'],
+        ['python3', 'chall1_rev.pyc'],
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True
     )
-    # Send input and get output
+    
     try:
-        output, error = process.communicate(input=str_key+'\n', timeout=3)
-        if "Flag:" in output:
-            print(f"Key tried: {str_key}")
-            print(output)
-        # Look for the pattern that changes if found, e.g., 'Access denied!' or correct flag
-        if "Access denied!" not in output:
-            # Likely found the key if output is different
-            print("Potential key found:", str_key)
+        # Send the candidate key as input
+        output, error = process.communicate(input=str_key + '\n', timeout=3)
+        
+        # Check if we got the actual flag (not the denial message)
+        if "ACNCTF{" in output:
+            print(f"[SUCCESS] Key found: {str_key}")
             print("Output:\n", output)
             break
+        elif "Access denied!" not in output:
+            # If there's no denial, it might be a different message (e.g., flag)
+            print(f"[POTENTIAL] Key: {str_key}")
+            print("Output:\n", output)
+            break
+        
+        # Optional: Print progress every 100 keys
+        if key % 100 == 0:
+            print(f"Tried key: {str_key}")
+            
     except subprocess.TimeoutExpired:
         process.kill()
+        print(f"Timeout for key {str_key}")
+        
+    except Exception as e:
+        print(f"Error for key {str_key}: {e}")
+
+print("Brute-force completed.")
