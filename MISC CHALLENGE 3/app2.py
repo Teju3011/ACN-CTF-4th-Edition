@@ -10,9 +10,9 @@ import secrets
 import json
 
 class CTFChatbot:
-    def __init__(self, root):
+    def _init_(self, root):
         self.root = root
-        self.root.title("🏴‍☠️ ACNCTF CTF Challenge")
+        self.root.title("🏴‍☠ ACNCTF CTF Challenge")
         self.root.geometry("1200x800")
         self.root.configure(bg="#0d1117")
         
@@ -67,7 +67,7 @@ class CTFChatbot:
         
         challenges = [
             {
-                "question": f"🛡️ Welcome, challenger! To begin your quest, answer this riddle:\n\n{selected_riddle['q']}\n(one word, lowercase)",
+                "question": f"🛡 Welcome, challenger! To begin your quest, answer this riddle:\n\n{selected_riddle['q']}\n(one word, lowercase)",
                 "answer": selected_riddle['a'],
                 "success_msg": "Correct! The first fragment is yours.",
                 "hint": "Think about something that represents reality but isn't physical.",
@@ -75,10 +75,10 @@ class CTFChatbot:
                 "type": "riddle"
             },
             {
-                "question": f"🔤 Decode this triple-encoded string:\n{self.create_triple_encoded()}",
+                "question": f"🔤 Decode this string:\n{self.create_triple_encoded()}",
                 "answer": "m4st3r_",
                 "success_msg": "Excellent! Multi-layer decoding mastered.",
-                "hint": "It's Base64 → Hex → Base64. Decode in reverse order.",
+                "hint": "It's H SANDWICH OF B",
                 "validation": lambda ans: ans.strip().lower() == "m4st3r_",
                 "type": "encoding"
             },
@@ -86,20 +86,20 @@ class CTFChatbot:
                 "question": f"🤖 Binary puzzle with mathematical twist:\n{self.create_binary_math()}\nSolve the equation then convert result to ASCII:",
                 "answer": "of_th3_",
                 "success_msg": "Mathematical binary conversion achieved!",
-                "hint": "Solve the binary math first, then convert the result to ASCII characters.",
+                "hint": "Solve the binary math first, then convert the result.",
                 "validation": lambda ans: ans.strip().lower() == "of_th3_",
                 "type": "binary_math"
             },
             {
-                "question": f"📜 Advanced cipher challenge:\nCiphertext: {self.create_advanced_cipher()}\nMethod: Vigenère cipher with key 'CYBER'\nShift each letter by position × 2",
+                "question": f"📜 Advanced cipher challenge:\nCiphertext: {self.create_advanced_cipher()}\nkey 'CYBER'\n",
                 "answer": "d1g1t4l_",
                 "success_msg": "Advanced cryptography mastered!",
-                "hint": "Apply Vigenère decryption first, then reverse the position-based shift.",
+                "hint": "Vigenère",
                 "validation": lambda ans: ans.strip().lower() == "d1g1t4l_",
                 "type": "advanced_cipher"
             },
             {
-                "question": f"🔐 Cryptographic hash challenge:\nSalt: {self.session_salt}\nCombine: [riddle answer] + 'm4st3r_' + 'of_th3_' + 'd1g1t4l_' + salt\nProvide first 12 chars of SHA-256 hash:",
+                "question": f"🔐 Cryptographic hash challenge:\nSalt: {self.session_salt}\n[riddle answer] + 'm4st3r_' + 'of_th3_' + 'd1g1t4l_' + salt\nProvide first 12 chars of THE hash:",
                 "answer": self.get_dynamic_hash_prefix(selected_riddle['a']),
                 "success_msg": "Cryptographic mastery achieved!",
                 "hint": f"Hash the string: '{selected_riddle['a']}m4st3r_of_th3_d1g1t4l_{self.session_salt}'",
@@ -107,7 +107,7 @@ class CTFChatbot:
                 "type": "hash"
             },
             {
-                "question": f"🎯 Final decryption challenge:\nEncrypted flag: {self.create_final_encryption()}\nUse XOR key: {self.xor_key} (decimal)\nThen reverse and apply ROT13",
+                "question": f"🎯 Final decryption challenge:\nEncrypted flag: {self.create_final_encryption()}\nUse XOR key: {self.xor_key} (decimal)\n",
                 "answer": self.full_flag.lower(),
                 "success_msg": "🏆 ULTIMATE VICTORY! You are the ACNCTF champion!",
                 "hint": "XOR decrypt, reverse the string, then apply ROT13 decryption.",
@@ -213,7 +213,7 @@ class CTFChatbot:
         
         title_label = tk.Label(
             header_frame,
-            text="🏴‍☠️ ACNCTF CTF Challenge",
+            text="🏴‍☠ ACNCTF CTF Challenge",
             font=("Courier New", 24, "bold"),
             fg="#58a6ff",
             bg="#0d1117"
@@ -353,18 +353,6 @@ class CTFChatbot:
         )
         self.hint_btn.pack(side=tk.LEFT, padx=(0, 10))
         
-        self.skip_btn = tk.Button(
-            control_frame,
-            text="⏭️ Skip (Penalty)",
-            command=self.skip_challenge,
-            bg="#da3633",
-            fg="white",
-            font=("Arial", 10),
-            relief="solid",
-            borderwidth=1
-        )
-        self.skip_btn.pack(side=tk.LEFT, padx=(0, 10))
-        
         # Status frame with more info
         status_frame = tk.Frame(self.root, bg="#0d1117")
         status_frame.pack(fill=tk.X, padx=20, pady=5)
@@ -425,7 +413,7 @@ class CTFChatbot:
         for widget in self.progress_bar.winfo_children():
             widget.destroy()
             
-        challenge_icons = ["🛡️", "🔤", "🤖", "📜", "🔐", "🎯"]
+        challenge_icons = ["🛡", "🔤", "🤖", "📜", "🔐", "🎯"]
         
         for i in range(len(self.challenges)):
             if i < self.user_progress:
@@ -476,7 +464,7 @@ class CTFChatbot:
         
     def start_challenge(self):
         """Initialize the challenge with enhanced intro"""
-        self.add_message("SYSTEM", "🏴‍☠️ Welcome to ACNCTF Advanced CTF Challenge!")
+        self.add_message("SYSTEM", "🏴‍☠ Welcome to ACNCTF Advanced CTF Challenge!")
         self.add_message("SYSTEM", f"Session initialized with unique parameters:")
         self.add_message("SYSTEM", f"• Session Salt: {self.session_salt}")
         self.add_message("SYSTEM", f"• XOR Key: {self.xor_key}")
@@ -551,7 +539,7 @@ class CTFChatbot:
             self.challenge_times.append(solve_time)
             
             self.add_message("SYSTEM", f"✅ {current_challenge['success_msg']}")
-            self.add_message("SYSTEM", f"⏱️ Solved in {solve_time} seconds")
+            self.add_message("SYSTEM", f"⏱ Solved in {solve_time} seconds")
             
             # For flag fragment challenges (first 5)
             if self.current_challenge_index < 5:
@@ -624,26 +612,6 @@ class CTFChatbot:
             
             self.add_message("HINT", hint_msg)
     
-    def skip_challenge(self):
-        """Allow skipping with penalty"""
-        if messagebox.askyesno("Skip Challenge", "Skip this challenge? (You'll lose 2 minutes as penalty)"):
-            self.add_message("SYSTEM", "⏭️ Challenge skipped. 2-minute penalty added to your time.")
-            self.start_time -= 120  # Add 2-minute penalty
-            
-            # Mark as skipped and move to next
-            self.collected_parts.append("[SKIPPED]")
-            self.current_challenge_index += 1
-            self.user_progress = self.current_challenge_index
-            self.update_flag_display()
-            
-            if self.current_challenge_index >= len(self.challenges):
-                self.add_message("SYSTEM", "🏁 All challenges completed (with skips).")
-                self.add_message("SYSTEM", f"🚩 Partial Flag: {''.join(self.collected_parts)}")
-                self.status_label.config(text="Status: Completed with penalties")
-            else:
-                self.add_message("SYSTEM", "=" * 70)
-                self.present_challenge()
-    
     def update_attempts_display(self):
         """Update the attempts counter with color coding"""
         color = "#f85149" if self.failed_attempts >= 2 else "#58a6ff"
@@ -658,14 +626,14 @@ class CTFChatbot:
         status_icons = {
             "encrypted": "🔒",
             "unlocked": "✅", 
-            "skipped": "⏭️",
+            "skipped": "⏭",
             "final": "🏆"
         }
         
         for i in range(len(self.challenges)):
             if i < len(self.collected_parts):
                 if self.collected_parts[i] == "[SKIPPED]":
-                    display_parts.append("⏭️ [SKIPPED]")
+                    display_parts.append("⏭ [SKIPPED]")
                 else:
                     display_parts.append(f"✅ [{self.collected_parts[i]}]")
             elif i == self.current_challenge_index:
@@ -683,7 +651,7 @@ class CTFChatbot:
         else:
             self.flag_display.config(fg="#6e7681")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     root = tk.Tk()
     
     # Enhanced window setup
