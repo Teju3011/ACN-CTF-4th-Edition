@@ -1,0 +1,8 @@
+services:
+  web8:
+    build: .
+    ports:
+      - "32110:80"
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    container_name: web8_sticker_paradise
