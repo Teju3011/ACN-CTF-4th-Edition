@@ -49,7 +49,9 @@ For each candidate key `key` in range(0, 65536):
 1.  Reconstruct the known scrambling key array `s` based on `key`.
 2.  Decrypt the ciphertext `c` by reversing layers 3 and 2 as described.
 3.  Reverse layer 1: `potential_flag_byte = decrypted_layer1_byte ^ (key & 0xFF)`
-4.  Check if the resulting string is entirely printable ASCII and contains the expected flag format (e.g., `CTF{...`). The correct key will yield a coherent flag.
+4.  Check if the resulting string is entirely printable ASCII and contains the expected flag format (e.g., `ACNCTF{...`). The correct key will yield a coherent flag.
+
+**The Flag**: `ACNCTF{fru57r4710n _15_7h3_gr4ndf47h3r_0f_b4d_d3c1510n5}`
 
 #### **3. Conclusion**
 
