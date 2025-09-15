@@ -101,8 +101,17 @@ Output:
 
 ## Conclusion
 The challenge demonstrates that sometimes brute-forcing is a viable solution when the key space is small. Alternatively, reverse engineering the bytecode can provide a more elegant solution. In this case, brute-forcing is efficient and requires minimal effort.
+```cmd
+C:\Users\Java\Downloads\ctf\for_git\chall1>python chall.pyc
+==================================================
+ADVANCED MATHEMATICAL CHALLENGE
+==================================================
+Enter the secret key to unlock the flag:
+> 100c
 
-**Flag:** `ACNCTF{flag_here}` (replace with the actual flag found)
+Mathematical computation result: 774
+Flag: ACNCTF{u_r_s0_5m4rt_w0w}
+```
 
 ## Additional Notes
 - If the bytecode requires a specific Python version, ensure you use the same version to avoid compatibility issues.
