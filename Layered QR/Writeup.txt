@@ -1,0 +1,20 @@
+Layered QR
+Difficulty- Medium
+
+Some secrets aren’t written in plain sight — they hide between lines, shapes, and patterns. What you’ve been given looks like a set of ordinary QR codes, but looks can be deceiving.
+
+Each image holds fragments of something bigger. Scan them, decode them, piece them together… but beware — the truth may not reveal itself immediately. Some codes may mislead, others may whisper clues, and some may demand that you look beyond the pixels.
+
+Only those who understand how layers overlap, how patterns connect, and how details conceal meaning will find the hidden message. What you seek is not in one code — it lives in the way they interact.
+
+
+Solution: 
+The first step was to examine the provided GIFs. Use an online GIF splitter or Tools from ImageMagick to break the GIF image...where each GIF frame is divided into 9 images in a shuffled mode.
+
+Reconstruct each frame by QR using 3x3 grid montage command 
+scan each frame and get the parts of the flags
+
+
+join it to get a meaningful flag 
+Final Flag- ACNCTF{l@y3r$$_b3y0nd_v1s10n}
+
