@@ -1,0 +1,14 @@
+Challenge 3 
+Difficulty- Easy
+Every year, during festive celebrations, ancient messages are said to echo through cheerful melodies. This year, an old winter tune carries more than holiday spirit — subtle rhythms and pauses conceal a forgotten protocol used by wandering messengers of the north.
+
+Some hear bells, others hear silence.
+
+Can you tune into the quiet whispers between the jingles and uncover the encoded truth buried within the seasonal chorus?
+
+Solution: you are given a mp3 file, use sonic visualiser you will get a morse code image if decoded you will get a flag phrase
+ACNCTF{b3||$$wh1p3r1nth3n0w}
+include _ making it to a meaningful flag
+
+
+Final Flag- ACNCTF{b3||$_wh1$p3r_1n_th3_$n0w}
